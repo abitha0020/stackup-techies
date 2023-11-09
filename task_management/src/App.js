@@ -1,9 +1,15 @@
 
+import { useEffect, useState } from 'react';
 import Todolist from './components/Todolist';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { getAllTodo } from './utils/HandleApi';
 
 
 function App() {
+  const [toDo, setToDo]= useState([])
+  useEffect(() => {
+    getAllTodo(setToDo)
+  }, [])
   return (
     <div className="App">
       <div classname="container">
@@ -13,9 +19,8 @@ function App() {
           <div className='add'>Add</div>
         </div>
         <div className='list'>
-           <Todolist text="Hi"/>
-           <Todolist text="Hi"/>
-           <Todolist text="Hi"/>
+          {toDo.map((item) => <toDo key={item._id} text={item.text} />)}
+
         </div>
       </div>
     </div>
