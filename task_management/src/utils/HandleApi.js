@@ -8,4 +8,7 @@ const getAllTodo =(setToDo) => {
         setToDo(data)
     })
 }
-export {getAllTodo}
+const addToDo = (text, setText,setToDo) =>{
+    
+}
+export {getAllTodo,addToDo}
